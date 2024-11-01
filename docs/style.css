@@ -60,7 +60,7 @@ body {
 }
 
 .intro-text-container {
-  text-align: left; /* Выравнивание текста влево */
+  text-align: center; /* Выравнивание текста влево */
   margin-top: 5rem; /* Отступ сверху */
   margin-left: 5rem;
 }
