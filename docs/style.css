@@ -1,17 +1,15 @@
-/* Основные стили для тела страницы */
+/* Общие стили */
 body {
-  font-family: Arial, sans-serif; /* Шрифт для всего документа */
   margin: 0; /* Убираем отступы по умолчанию */
-  padding: 0; /* Убираем внутренние отступы */
-  background-color: #f5f5f5; /* Цвет фона */
+  font-family: Arial, sans-serif; /* Шрифт для всего сайта */
+  background-color: #1a1a1a; /* Темный фон */
+  color: #fff; /* Белый цвет текста по умолчанию */
 }
-
 /* Хедер */
 .header {
   background-color: #000; /* Черный фон */
   color: #fff; /* Белый цвет текста */
   padding: 1.5rem 0; /* Отступы сверху и снизу */
-  position: relative; /* Относительное позиционирование для дочерних элементов */
 }
 
 .header-content {
@@ -22,20 +20,19 @@ body {
   justify-content: space-between; /* Распределение элементов по краям */
 }
 
-.logo {
-  width: 50px; /* Ширина логотипа */
-  margin-left: 0.5rem; /* Отступ слева от края */
-}
-
-.site-title {
-  font-size: 1.5rem; /* Размер заголовка */
-  /*margin: 0 1rem;  Отступы вокруг названия */
-  text-align: left;
-}
-
 .header-left {
   display: flex; /* Используем флексбокс для логотипа и названия */
   align-items: center; /* Выравнивание по вертикали */
+}
+
+.logo {
+  width: 50px; /* Ширина логотипа */
+  margin-right: 0.5rem; /* Отступ справа от логотипа */
+}
+
+/* Заголовок сайта выровнен влево */
+.site-title {
+  font-size: 1.5rem; /* Размер заголовка */
 }
 
 /* Кнопка меню */
@@ -48,127 +45,85 @@ body {
   margin-right: 1rem; /* Отступ справа от края */
 }
 
-/* Меню */
-.menu {
-  display: none; /* Скрыто по умолчанию */
-  background-color: #000; /* Черный фон */
-  position: absolute; /* Абсолютное позиционирование */
-  top: 100%; /* Позиционирование под хедером */
-  left: 0; /* Выравнивание по левому краю */
-  width: 100%; /* Ширина на весь экран */
-  height: 100vh; /* Занимает всю высоту экрана */
-  flex-direction: column; /* Вертикальное расположение элементов */
-  align-items: center; /* Центрируем по горизонтали */
-  justify-content: center; /* Центрируем по вертикали */
-  transition: all 0.3s ease; /* Плавный переход при показе/скрытии */
+.intro {
+  text-align: left; /* Заголовок слева */
+  padding: 2rem 1rem; /* Отступы сверху и снизу */
+  width: 100%; /* Ширина в 100% */
 }
 
-.menu.active {
-  display: flex; /* Отображение при активации */
-}
-
-.menu-close {
-  background: none; /* Прозрачный фон */
-  border: none; /* Убираем рамку */
-  color: white; /* Цвет текста */
-  font-size: 2rem; /* Размер кнопки закрытия */
-  position: absolute; /* Абсолютное позиционирование */
-  top: 1rem; /* Отступ сверху */
-  right: 1rem; /* Отступ справа */
-}
-
-/* Элементы меню */
-.menu-item {
-  color: white; /* Цвет текста */
-  text-decoration: none; /* Убираем подчеркивание */
-  padding: 1rem 0; /* Вертикальные отступы */
-  transition: color 0.3s; /* Плавный переход при наведении */
-}
-
-.menu-item:hover {
-  color: #00aaff; /* Цвет при наведении */
-}
-
-/* Стили для основной части страницы */
-.main-content {
-  padding: 2rem; /* Внутренние отступы для основного контента */
-}
-
-/* Заголовок */
 .main-title {
-  font-size: 2.5rem; /* Размер заголовка */
-  font-weight: bold; /* Жирный текст */
-  margin-bottom: 1rem; /* Отступ снизу */
+  font-size: 7rem; /* Увеличенный размер заголовка */
+  margin-bottom: 1rem; /* Отступ снизу от заголовка */
+  color: #fff; /* Белый цвет заголовка */
+  white-space: normal; /* Разрешаем перенос текста */
+  text-align: center;
 }
 
-/* Текст */
-.main-text {
+.intro-text-container {
+  text-align: left; /* Выравнивание текста влево */
+  margin-top: 5rem; /* Отступ сверху */
+  margin-left: 5rem;
+}
+
+.intro-text {
   font-size: 1rem; /* Размер текста */
-  margin-bottom: 1rem; /* Отступ снизу */
+  color: #ccc; /* Светло-серый цвет текста */
+  margin-bottom: 1.5rem; /* Отступ снизу от текста */
+  max-width: 50%; /* Максимальная ширина 50% на больших экранах */
+  text-align: left; /* Выравнивание текста влево */
+  margin-left: 5rem; /* Отступ слева, чтобы текст начинался на уровне линии */
 }
 
-/* Полоска */
 .divider {
-  border-top: 1px solid #000; /* Черная линия */
-  margin: 1rem 0; /* Отступы сверху и снизу */
+  border: none; /* Убираем рамку */
+  height: 1px; /* Высота линии */
+  background-color: #fff; /* Цвет линии */
+  margin: 1rem auto; /* Отступы сверху и снизу, центрирование */
+  width: 80%; /* Ширина линии */
 }
 
-/* Кнопка */
-.rounded-button {
-  background-color: #00aaff; /* Голубой цвет кнопки */
+/* Адаптивность */
+@media (max-width: 600px) {
+  .main-title {
+      font-size: 2.5rem; /* Уменьшаем размер заголовка на мобильных устройствах */
+  }
+
+  .intro-text {
+      font-size: 0.9rem; /* Уменьшаем размер текста на мобильных устройствах */
+  }
+
+  .order-project {
+      width: 100%; /* Ширина кнопки на мобильных устройствах */
+      padding: 1rem; /* Увеличиваем отступы внутри кнопки */
+  }
+}
+
+/* Адаптивность */
+@media (max-width: 600px) {
+  .intro-text {
+      max-width: 100%; /* Ширина 100% на мобильных устройствах */
+      font-size: 0.9rem; /* Уменьшаем размер текста на мобильных устройствах */
+  }
+}
+
+.order-button-container {
+  display: flex; /* Используем flexbox для центрирования */
+  justify-content: center; /* Центрируем содержимое по горизонтали */
+  margin-top: 2rem; /* Отступ сверху */
+  margin-bottom: 2rem; /* Отступ снизу */
+}
+
+.order-project {
+  background-color: #007bff; /* Цвет кнопки */
   color: #fff; /* Белый цвет текста */
   border: none; /* Убираем рамку */
-  border-radius: 25px; /* Закругленные края */
-  padding: 1rem 2rem; /* Внутренние отступы */
+  padding: 1rem 2rem; /* Увеличиваем отступы внутри кнопки */
+  border-radius: 29px; /* Закругленные углы */
   cursor: pointer; /* Курсор в виде руки при наведении */
-  font-size: 1rem; /* Размер текста кнопки */
+  font-size: 1.5rem; /* Увеличиваем размер текста на кнопке */
   transition: background-color 0.3s; /* Плавный переход цвета */
 }
 
-.rounded-button:hover {
-  background-color: #0088cc; /* Темнее при наведении */
-}
-
-/* Тарифные планы */
-.pricing-plans {
-  display: flex; /* Используем флексбокс для карточек */
-  justify-content: space-between; /* Распределяем карточки по горизонтали */
-  margin: 2rem 0; /* Отступы сверху и снизу */
-}
-
-/* Карточка тарифа */
-.pricing-card {
-  background-color: #f0f0f0; /* Светло-серый цвет фона */
-  padding: 1.5rem; /* Внутренние отступы */
-  border-radius: 10px; /* Закругленные края */
-  flex: 1; /* Все карточки равной ширины */
-  margin: 0 1rem; /* Отступы между карточками */
-}
-
-/* Цена */
-.price {
-  font-size: 1.5rem; /* Размер шрифта цены */
-  font-weight: bold; /* Жирный текст */
-  color: #00aaff; /* Цвет цены */
-}
-
-/* Проекты */
-.projects {
-  margin: 2rem 0; /* Отступы сверху и снизу */
-}
-
-/* Контакты */
-.contacts {
-  margin: 2rem 0; /* Отступы сверху и снизу */
-  font-size: 1rem; /* Размер текста */
-  color: #333; /* Цвет текста */
-}
-
-/* Футер */
-.footer {
-  background-color: #000; /* Черный фон */
-  color: #fff; /* Белый цвет текста */
-  padding: 2rem 0; /* Отступы сверху и снизу */
-  text-align: center; /* Центрируем текст */
-  font-size: 0.9rem; /* Размер шрифта футера */
+.order-project:hover {
+  background-color: #0056b3; /* Темнее при наведении */
 }
