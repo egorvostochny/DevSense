@@ -1,34 +1,76 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DevSense</title>
-    <link rel="stylesheet" href="style.css"> <!-- Подключаем CSS -->
+    <title>ВМетелик - Регистрация</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eceff1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .registration-container {
+            width: 360px;
+            padding: 20px;
+            background-color: #ffffff;
+            border: 1px solid #dfe3e6;
+            box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            font-size: 24px;
+            color: #2b587a;
+            margin-bottom: 20px;
+        }
+        input[type="text"], input[type="password"], input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #dfe3e6;
+            border-radius: 4px;
+        }
+        .register-button {
+            width: 100%;
+            padding: 10px;
+            background-color: #3b6998;
+            border: none;
+            color: #ffffff;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        .register-button:hover {
+            background-color: #2a4d6d;
+        }
+        .login-link {
+            display: block;
+            margin-top: 15px;
+            color: #2b587a;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .login-link:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-    <header class="header">
-        <div class="header-content">
-            <div class="header-left">
-                <img src="logo.png" alt="Логотип" class="logo">
-                <span class="site-title">DevSense</span>
-            </div>
-            <button class="menu-button">&#9776;</button> <!-- Кнопка меню -->
-        </div>
-    </header>
-    <main>
-        <section class="intro">
-            <h1 class="main-title">СТВОРЕННЯ САЙТІВ ДЛЯ БІЗНЕСУ</h1>
-            <div class="intro-text-container">
-                
-            </div>
-            <hr class="divider">
-            <div class="order-button-container">
-                <button class="order-project">ЗАМОВИТИ ПРОЄКТ</button>
-            </div>
-        </section>
-    </main>
-
-    <script src="script.js"></script> <!-- Подключаем JavaScript -->
+    <div class="registration-container">
+        <h1>Регистрация в ВМетелик</h1>
+        <form>
+            <input type="text" placeholder="Имя" required>
+            <input type="text" placeholder="Фамилия" required>
+            <input type="email" placeholder="Электронная почта" required>
+            <input type="password" placeholder="Пароль" required>
+            <button type="submit" class="register-button">Зарегистрироваться</button>
+        </form>
+        <a href="#" class="login-link">Уже зарегистрированы? Войдите</a>
+    </div>
 </body>
 </html>
