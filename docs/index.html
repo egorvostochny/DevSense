@@ -1,76 +1,109 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VMetelik - Registrierung</title>
+    <title>Прогрес вивчення</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #eceff1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .registration-container {
-            width: 360px;
+            max-width: 600px;
+            margin: 0 auto;
             padding: 20px;
-            background-color: #ffffff;
-            border: 1px solid #dfe3e6;
-            box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
         }
-        h1 {
-            font-size: 24px;
-            color: #2b587a;
-            margin-bottom: 20px;
+        .skill {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
         }
-        input[type="text"], input[type="password"], input[type="email"] {
+        .skill label {
+            margin-left: 8px;
+            color: #555;
+        }
+        .completed-skill label {
+            text-decoration: line-through;
+            color: #888;
+        }
+        .progress-container {
             width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #dfe3e6;
-            border-radius: 4px;
+            background-color: #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 20px 0;
+            position: relative;
         }
-        .register-button {
-            width: 100%;
-            padding: 10px;
-            background-color: #3b6998;
-            border: none;
-            color: #ffffff;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 4px;
-            margin-top: 10px;
+        .progress-bar {
+            height: 24px;
+            background-color: #76c7c0;
+            width: 0%;
+            transition: width 0.3s ease;
         }
-        .register-button:hover {
-            background-color: #2a4d6d;
-        }
-        .login-link {
-            display: block;
-            margin-top: 15px;
-            color: #2b587a;
-            text-decoration: none;
-            font-size: 14px;
-        }
-        .login-link:hover {
-            text-decoration: underline;
+        .progress-text {
+            position: absolute;
+            top: 0;
+            right: 10px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            color: #333;
         }
     </style>
 </head>
 <body>
-    <div class="registration-container">
-        <h1>Registrierung bei VMetelik</h1>
-        <form>
-            <input type="text" placeholder="Vorname" required>
-            <input type="text" placeholder="Nachname" required>
-            <input type="email" placeholder="E-Mail" required>
-            <input type="password" placeholder="Passwort" required>
-            <button type="submit" class="register-button">Registrieren</button>
-        </form>
-        <a href="#" class="login-link">Bereits registriert? Anmelden</a>
+    <h1>Прогрес вивчення</h1>
+
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+        <div class="progress-text" id="progressText">0%</div>
     </div>
+
+    <div id="skillsContainer" class="skills"></div>
+
+    <script>
+        // Список навыков и их статус (true - выполнено, false - не выполнено)
+        const skills = [
+            { name: "Досвід роботи з HTML, CSS і JavaScript", completed: true },
+            { name: "Розуміння та досвід роботи з API", completed: false },
+            { name: "Робота з bootstrap та іншими css фреймворками", completed: false },
+            { name: "Робота з чистим js. Без фреймворків, проект SSR", completed: false },
+            { name: "Навички роботи з вебсокетами", completed: false },
+            { name: "Бажано досвід роботи в cms", completed: false },
+            { name: "Бажання навчатися і розвиватися в сфері фронтенд розробки", completed: true },
+        ];
+
+        // Функция обновления отображения навыков и прогресса
+        function updateProgress() {
+            const skillsContainer = document.getElementById('skillsContainer');
+            skillsContainer.innerHTML = ''; // Очистка перед рендерингом
+
+            let completedSkills = 0;
+
+            // Отображение навыков
+            skills.forEach(skill => {
+                const skillDiv = document.createElement('div');
+                skillDiv.classList.add('skill');
+                if (skill.completed) {
+                    skillDiv.classList.add('completed-skill');
+                    completedSkills++;
+                }
+                
+                const label = document.createElement('label');
+                label.textContent = skill.name;
+                skillDiv.appendChild(label);
+                skillsContainer.appendChild(skillDiv);
+            });
+
+            // Расчет и обновление прогресса
+            const progressPercentage = (completedSkills / skills.length) * 100;
+            document.getElementById('progressBar').style.width = progressPercentage + '%';
+
+            // Обновление текста с процентами
+            document.getElementById('progressText').textContent = Math.round(progressPercentage) + '%';
+        }
+
+        // Инициализация отображения
+        updateProgress();
+    </script>
 </body>
 </html>
