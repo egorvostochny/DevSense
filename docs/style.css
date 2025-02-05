@@ -1,121 +1,111 @@
 /* Общие стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
 body {
-  margin: 0; /* Убираем отступы по умолчанию */
-  font-family: Arial, sans-serif; /* Шрифт для всего сайта */
-  background-color: #1a1a1a; /* Темный фон */
-  color: #fff; /* Белый цвет текста по умолчанию */
-}
-/* Хедер */
-.header {
-  background-color: #000; /* Черный фон */
-  color: #fff; /* Белый цвет текста */
-  padding: 1.5rem 0; /* Отступы сверху и снизу */
+    background-color: #e5e5e5;
+    color: #333;
 }
 
-.header-content {
-  max-width: 1200px; /* Максимальная ширина хедера */
-  margin: 0 auto; /* Центрируем хедер */
-  display: flex; /* Используем флексбокс */
-  align-items: center; /* Выравнивание по вертикали */
-  justify-content: space-between; /* Распределение элементов по краям */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
-.header-left {
-  display: flex; /* Используем флексбокс для логотипа и названия */
-  align-items: center; /* Выравнивание по вертикали */
+/* Шапка */
+header {
+    background-color: #4a76a8; /* Цвет как у ВК */
+    padding: 15px 0;
+    text-align: center;
 }
 
-.logo {
-  width: 50px; /* Ширина логотипа */
-  margin-right: 0.5rem; /* Отступ справа от логотипа */
+header h1 {
+    color: white;
+    font-size: 36px;
 }
 
-/* Заголовок сайта выровнен влево */
-.site-title {
-  font-size: 1.5rem; /* Размер заголовка */
-}
-
-/* Кнопка меню */
-.menu-button {
-  background-color: transparent; /* Прозрачный фон */
-  border: none; /* Убираем рамку */
-  cursor: pointer; /* Курсор в виде руки при наведении */
-  font-size: 2rem; /* Размер кнопки меню */
-  color: #fff; /* Цвет текста */
-  margin-right: 1rem; /* Отступ справа от края */
+/* Основная часть */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
 }
 
 .intro {
-  text-align: left; /* Заголовок слева */
-  padding: 2rem 1rem; /* Отступы сверху и снизу */
-  width: 100%; /* Ширина в 100% */
+    text-align: center;
+    margin-bottom: 30px;
 }
 
-.main-title {
-  font-size: 7rem; /* Увеличенный размер заголовка */
-  margin-bottom: 1rem; /* Отступ снизу от заголовка */
-  color: #fff; /* Белый цвет заголовка */
-  white-space: normal; /* Разрешаем перенос текста */
-  text-align: center;
+.intro h2 {
+    font-size: 28px;
+    color: #4a76a8;
+    margin-bottom: 10px;
 }
 
-.intro-text-container {
-  text-align: center; /* Выравнивание текста влево */
-  margin-top: 5rem; /* Отступ сверху */
-  margin-left: 5rem;
+.intro p {
+    font-size: 18px;
+    color: #555;
 }
 
-.intro-text {
-  font-size: 1rem; /* Размер текста */
-  color: #ccc; /* Светло-серый цвет текста */
-  margin-bottom: 1.5rem; /* Отступ снизу от текста */
-  text-align: center; /* Выравнивание текста влево */
+/* Формы */
+.auth-forms {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 800px;
 }
 
-.divider {
-  border: none; /* Убираем рамку */
-  height: 1px; /* Высота линии */
-  background-color: #fff; /* Цвет линии */
-  margin: 1rem auto; /* Отступы сверху и снизу, центрирование */
-  width: 80%; /* Ширина линии */
+.auth-forms .login-form,
+.auth-forms .register-form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 45%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-
-.order-button-container {
-  display: flex; /* Используем flexbox для центрирования */
-  justify-content: center; /* Центрируем содержимое по горизонтали */
-  margin-top: 2rem; /* Отступ сверху */
-  margin-bottom: 2rem; /* Отступ снизу */
+.auth-forms h3 {
+    margin-bottom: 15px;
+    color: #4a76a8;
+    text-align: center;
 }
 
-.order-project {
-  background-color: #007bff; /* Цвет кнопки */
-  color: #fff; /* Белый цвет текста */
-  border: none; /* Убираем рамку */
-  padding: 1rem 2rem; /* Увеличиваем отступы внутри кнопки */
-  border-radius: 29px; /* Закругленные углы */
-  cursor: pointer; /* Курсор в виде руки при наведении */
-  font-size: 1.5rem; /* Увеличиваем размер текста на кнопке */
-  transition: background-color 0.3s; /* Плавный переход цвета */
-}
-/* Адаптивность */
-@media (max-width: 600px) {
-    .main-title {
-        font-size: 2.5rem; /* Уменьшаем размер заголовка на мобильных устройствах */
-    }
-
-    .intro-text {
-        max-width: 100%; /* Ширина 100% на мобильных устройствах */
-        font-size: 0.9rem; /* Уменьшаем размер текста на мобильных устройствах */
-    }
-
-    .order-project {
-        width: 100%; /* Ширина кнопки на мобильных устройствах */
-        padding: 1.5rem; /* Увеличиваем отступы внутри кнопки */
-        font-size: 1.25rem; /* Уменьшаем размер текста на кнопке для мобильных устройств */
-    }
+.auth-forms input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
-.order-project:hover {
-  background-color: #0056b3; /* Темнее при наведении */
+.auth-forms button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4a76a8;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.auth-forms button:hover {
+    background-color: #3b5d84;
+}
+
+/* Подвал */
+footer {
+    margin-top: 50px;
+    text-align: center;
+    padding: 10px 0;
+    background-color: #4a76a8;
+    color: white;
 }
