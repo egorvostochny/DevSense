@@ -1,109 +1,49 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Прогрес вивчення</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        .skill {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-        .skill label {
-            margin-left: 8px;
-            color: #555;
-        }
-        .completed-skill label {
-            text-decoration: line-through;
-            color: #888;
-        }
-        .progress-container {
-            width: 100%;
-            background-color: #e0e0e0;
-            border-radius: 8px;
-            overflow: hidden;
-            margin: 20px 0;
-            position: relative;
-        }
-        .progress-bar {
-            height: 24px;
-            background-color: #76c7c0;
-            width: 0%;
-            transition: width 0.3s ease;
-        }
-        .progress-text {
-            position: absolute;
-            top: 0;
-            right: 10px;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            font-weight: bold;
-            color: #333;
-        }
-    </style>
+    <title>ВГорохе</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Прогрес вивчення</h1>
+    <header>
+        <div class="container">
+            <h1>ВГорохе</h1>
+        </div>
+    </header>
 
-    <div class="progress-container">
-        <div class="progress-bar" id="progressBar"></div>
-        <div class="progress-text" id="progressText">0%</div>
-    </div>
+    <main class="container">
+        <section class="intro">
+            <h2>Добро пожаловать в ВГорохе!</h2>
+            <p>Оставайтесь на связи с друзьями и близкими.</p>
+        </section>
 
-    <div id="skillsContainer" class="skills"></div>
+        <section class="auth-forms">
+            <div class="login-form">
+                <h3>Вход</h3>
+                <form>
+                    <input type="text" placeholder="Телефон или email" required>
+                    <input type="password" placeholder="Пароль" required>
+                    <button type="submit">Войти</button>
+                </form>
+            </div>
 
-    <script>
-        // Список навыков и их статус (true - выполнено, false - не выполнено)
-        const skills = [
-            { name: "Досвід роботи з HTML, CSS і JavaScript", completed: true },
-            { name: "Розуміння та досвід роботи з API", completed: false },
-            { name: "Робота з bootstrap та іншими css фреймворками", completed: true },
-            { name: "Робота з чистим js. Без фреймворків, проект SSR", completed: false },
-            { name: "Навички роботи з вебсокетами", completed: false },
-            { name: "Бажано досвід роботи в cms", completed: false },
-            { name: "Бажання навчатися і розвиватися в сфері фронтенд розробки", completed: true },
-        ];
+            <div class="register-form">
+                <h3>Регистрация</h3>
+                <form>
+                    <input type="text" placeholder="Имя" required>
+                    <input type="text" placeholder="Фамилия" required>
+                    <input type="email" placeholder="Email" required>
+                    <input type="password" placeholder="Пароль" required>
+                    <button type="submit">Зарегистрироваться</button>
+                </form>
+            </div>
+        </section>
+    </main>
 
-        // Функция обновления отображения навыков и прогресса
-        function updateProgress() {
-            const skillsContainer = document.getElementById('skillsContainer');
-            skillsContainer.innerHTML = ''; // Очистка перед рендерингом
-
-            let completedSkills = 0;
-
-            // Отображение навыков
-            skills.forEach(skill => {
-                const skillDiv = document.createElement('div');
-                skillDiv.classList.add('skill');
-                if (skill.completed) {
-                    skillDiv.classList.add('completed-skill');
-                    completedSkills++;
-                }
-                
-                const label = document.createElement('label');
-                label.textContent = skill.name;
-                skillDiv.appendChild(label);
-                skillsContainer.appendChild(skillDiv);
-            });
-
-            // Расчет и обновление прогресса
-            const progressPercentage = (completedSkills / skills.length) * 100;
-            document.getElementById('progressBar').style.width = progressPercentage + '%';
-
-            // Обновление текста с процентами
-            document.getElementById('progressText').textContent = Math.round(progressPercentage) + '%';
-        }
-
-        // Инициализация отображения
-        updateProgress();
-    </script>
+    <footer>
+        <p>© 2025 ВГорохе</p>
+    </footer>
 </body>
 </html>
